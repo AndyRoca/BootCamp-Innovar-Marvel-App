@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="coverContainerForm">
+        <img id="cover" alt="Cover Image">
+    </div>
+    <script>
+        let coverUrl = parent.Xrm.Page.getAttribute("arc_imageurl").getValue();
+        let imgTag = document.getElementById("cover");
+        imgTag.setAttribute("src", coverUrl);
+    </script>
+</body>
+
+</html>

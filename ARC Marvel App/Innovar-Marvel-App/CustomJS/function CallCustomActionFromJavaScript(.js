@@ -1,3 +1,33 @@
+var modal = window.modal || {};
+(function ()
+{
+    this.buttonOnClick = function ()
+    {
+        console.log("Respondio ")
+        var pageInput = {
+            pageType: "webresource",
+            webresourceName: "arc_AddProductModal",
+        };
+        var navigationOptions = {
+            target: 2,
+            height: { value: 30, unit: "%" },
+            width: { value: 30, unit: "%" },
+            position: 1,
+        };
+        Xrm.Navigation.navigateTo(pageInput, navigationOptions).then(
+            function success()
+            {
+                // Run code on success
+                console.log("Loaded");
+            },
+            function error()
+            {
+                // Handle errors
+            }
+        );
+    };
+}).call(modal);
+
 function CallCustomActionFromJavaScript()
 {
 
@@ -7,7 +37,7 @@ function CallCustomActionFromJavaScript()
 
     let actionName = "arc_MyCustomAction";
 
-    let InputParamValue = globalContext.userSettings.userId;
+    let InputParamValue = document.getElementById("comicId").value;
 
     let data = {
         MyInputParam: InputParamValue,
@@ -33,7 +63,7 @@ function CallCustomActionFromJavaScript()
 
                 result = JSON.parse(this.response);
 
-                console.log(result.MyOutputParam);
+                console.log(result);
 
             } else
             {
